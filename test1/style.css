@@ -1,0 +1,24 @@
+/*
+Theme Name: Simple Theme
+Theme URI: https://example.com
+Author: Your Name
+Description: A simple WordPress theme with a single text.
+Version: 1.0
+License: GNU General Public License v2 or later
+Text Domain: simple-theme
+*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
