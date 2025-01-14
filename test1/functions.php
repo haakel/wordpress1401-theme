@@ -47,12 +47,26 @@ $table_user = $wpdb->prefix."testamozesh";
 // $R = $wpdb->get_row("SELECT * FROM {$table_user}", ARRAY_N,"0");
 
 //متد get_col برای دریافت ستون 
-$R = $wpdb->get_col("SELECT name FROM {$table_user} WHERE Id = 1");
+// $R = $wpdb->get_col("SELECT name FROM {$table_user} WHERE Id = 1");
 
-echo '<pre>';
-var_dump($R);
-echo '<pre>'; 
+// echo '<pre>';
+// var_dump($R);
+// echo '<pre>'; 
  // خرجی گرفتن از اطلاعات خاص کاربر
 //  echo $R->name;
  //  خرجی گرفتن از اطلاعات خاص کاربر با فرمت خاص مثلا array
 //echo $R['name'];
+
+//s16 - e03
+// select var
+// GET VAR برای جمع کردن یا شمردن استفاده میشه و حالت CASH  داره
+// $R = $wpdb->get_var("SELECT COUNT(*) FROM {$table_user}");
+
+// echo '<pre>';
+// var_dump($R);
+// echo '<pre>'; 
+
+
+// //GET RESULTS
+// $R = $wpdb->get_results("SELECT * FROM {$table_user}");
+// echo $wpdb->num_rows;
