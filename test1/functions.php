@@ -70,3 +70,24 @@ $table_user = $wpdb->prefix."testamozesh";
 // //GET RESULTS
 // $R = $wpdb->get_results("SELECT * FROM {$table_user}");
 // echo $wpdb->num_rows;
+
+
+//s16 - e04
+//insert
+$name = "محمد";
+$family = "کاظمی";
+$tel = "12345678";
+//sprintf mode
+// $stmt=$wpdb->query($wpdb->prepare("INSERT INTO {$table_user} (name,family,tel) VALUES (%s,%s,%d)",$name,$family,$tel));
+
+//vsprintf mode
+//$stmt=$wpdb->query($wpdb->prepare("INSERT INTO {$table_user} (name,family,tel) VALUES (%s,%s,%d)",[$name,$family,$tel]));
+
+// //insert mode
+// $stmt=$wpdb->insert($table_user,["name"=>$name,"family"=>$family,"tel"=>$tel,],["%s","%s","%d"]);
+
+$data=["name"=>$name,"family"=>$family,"tel"=>$tel];
+$format=["%s","%s","%d"];
+//insert mode
+$stmt=$wpdb->insert($table_user,$data,$format);
+echo $wpdb->insert_id;
