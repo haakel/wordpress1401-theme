@@ -74,9 +74,11 @@ $table_user = $wpdb->prefix."testamozesh";
 
 //s16 - e04
 //insert
-$name = "محمد";
-$family = "کاظمی";
-$tel = "12345678";
+
+// $name = "محمد";
+// $family = "کاظمی";
+// $tel = "12345678";
+
 //sprintf mode
 // $stmt=$wpdb->query($wpdb->prepare("INSERT INTO {$table_user} (name,family,tel) VALUES (%s,%s,%d)",$name,$family,$tel));
 
@@ -86,8 +88,30 @@ $tel = "12345678";
 // //insert mode
 // $stmt=$wpdb->insert($table_user,["name"=>$name,"family"=>$family,"tel"=>$tel,],["%s","%s","%d"]);
 
-$data=["name"=>$name,"family"=>$family,"tel"=>$tel];
-$format=["%s","%s","%d"];
-//insert mode
-$stmt=$wpdb->insert($table_user,$data,$format);
-echo $wpdb->insert_id;
+// $data=["name"=>$name,"family"=>$family,"tel"=>$tel];
+// $format=["%s","%s","%d"];
+// //insert mode
+// $stmt=$wpdb->insert($table_user,$data,$format);
+// echo $wpdb->insert_id;
+
+
+//s16 - e04
+//update
+$ID=10;
+$name = "هانا";
+$family = "میرزازاده چسبیده";
+// update with query
+// $stmt=$wpdb->query(
+// $wpdb->prepare(
+// "UPDATE {$table_user} SET
+//  name=%s,family=%s WHERE ID =%d"
+// ,$name,$family,$ID)
+// );
+
+// update with out query
+$data=["name"=>$name,"family"=>$family];
+// $where=["id"=>10,"stutus"=>10];
+$where=["id"=>10];
+$format=["%s","%s"];
+$where_format=["%d"];
+$stmt=$wpdb->update($table_user,$data,$where,$format,$where_format);
