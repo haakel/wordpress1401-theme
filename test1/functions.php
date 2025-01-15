@@ -95,7 +95,7 @@ $table_user = $wpdb->prefix."testamozesh";
 // echo $wpdb->insert_id;
 
 
-//s16 - e04
+//s16 - e05
 //update
 $ID=10;
 $name = "هانا";
