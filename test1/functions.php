@@ -1,4 +1,6 @@
 <?php
+
+include"sanitize.php";
 // echo "hi";
 
 // global $wpdb;
@@ -24,8 +26,8 @@
 
 
 //s16- e02
-global $wpdb;
- echo $wpdb->prefix."testamozesh";
+//global $wpdb;
+//  echo $wpdb->prefix."testamozesh";
 //دریافت اطلاعات دیتابیسی که خودمون ساختیم
 // $table_user = $wpdb->prefix."testamozesh";
 //دریافت اطلاعات کامل دیتابیسی که خودمون ساختیم
@@ -152,3 +154,7 @@ global $wpdb;
 // } else {
 //     echo "عملیات با موفقیت انجام شد. تعداد ردیف‌ها: $result";
 // }
+
+
+//s16 - e07
+//add sanitize file
