@@ -25,9 +25,9 @@
 
 //s16- e02
 global $wpdb;
-//  echo $wpdb->prefix."testamozesh";
+ echo $wpdb->prefix."testamozesh";
 //دریافت اطلاعات دیتابیسی که خودمون ساختیم
-$table_user = $wpdb->prefix."testamozesh";
+// $table_user = $wpdb->prefix."testamozesh";
 //دریافت اطلاعات کامل دیتابیسی که خودمون ساختیم
 // $R = $wpdb->get_results("SELECT * FROM {$table_user}");
 
@@ -75,9 +75,9 @@ $table_user = $wpdb->prefix."testamozesh";
 //s16 - e04
 //insert
 
-// $name = "محمد";
-// $family = "کاظمی";
-// $tel = "12345678";
+// $name = "حمید2";
+// $family = "2اکبری";
+// $tel = "1223";
 
 //sprintf mode
 // $stmt=$wpdb->query($wpdb->prepare("INSERT INTO {$table_user} (name,family,tel) VALUES (%s,%s,%d)",$name,$family,$tel));
@@ -90,16 +90,16 @@ $table_user = $wpdb->prefix."testamozesh";
 
 // $data=["name"=>$name,"family"=>$family,"tel"=>$tel];
 // $format=["%s","%s","%d"];
-// //insert mode
+//insert mode
 // $stmt=$wpdb->insert($table_user,$data,$format);
 // echo $wpdb->insert_id;
 
 
 //s16 - e05
 //update
-$ID=10;
-$name = "هانا";
-$family = "میرزازاده چسبیده";
+// $ID=10;
+// $name = "هانا";
+// $family = "میرزازاده چسبیده";
 // update with query
 // $stmt=$wpdb->query(
 // $wpdb->prepare(
@@ -109,9 +109,46 @@ $family = "میرزازاده چسبیده";
 // );
 
 // update with out query
-$data=["name"=>$name,"family"=>$family];
-// $where=["id"=>10,"stutus"=>10];
-$where=["id"=>10];
-$format=["%s","%s"];
-$where_format=["%d"];
-$stmt=$wpdb->update($table_user,$data,$where,$format,$where_format);
+// $data=["name"=>$name,"family"=>$family];
+// // $where=["id"=>10,"stutus"=>10];
+// $where=["id"=>10];
+// $format=["%s","%s"];
+// $where_format=["%d"];
+// $stmt=$wpdb->update($table_user,$data,$where,$format,$where_format);
+
+
+//s16 - e06
+//delete
+// $ID=10;
+//  delete with query
+// $stmt=$wpdb->query(
+// $wpdb->prepare(
+// "DELETE FROM {$table_user} WHERE ID =%d"
+// ,$ID)
+// );
+
+
+//delete with out query
+// $where=["id"=>15];
+// $where_format=["%d"];
+// $stmt=$wpdb->delete($table_user,$where,$where_format);
+
+// //replace
+// global $wpdb;
+// $table_user = $wpdb->prefix . "testamozesh";
+// $where = ["id" => 14];
+// $where_format = ["%d"];
+// $data = [
+//     "id" => 14,
+//     "name" => "1ممد",
+//     "family" => "1کاظمی",
+// ];
+// $data_format = ["%d", "%s", "%s"];
+
+// $result = $wpdb->replace($table_user, $data, $data_format);
+
+// if ($result === false) {
+//     echo "خطا در اجرای دستور: " . $wpdb->last_error;
+// } else {
+//     echo "عملیات با موفقیت انجام شد. تعداد ردیف‌ها: $result";
+// }
