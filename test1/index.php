@@ -105,12 +105,23 @@
     <div class="form-container">
         <section>
             <?php
-            
+            $user = new user();
+            if (isset($_POST["btn-submit"])){
+                if($_SERVER['REQUEST_METHOD']== "POST"){
+                $user->save($_POST["name"],$_POST["lastname"],$_POST["email"],$_POST["bio"]);
+
+                }
+
+            }
             ?>
             <h1>کار با دیتابیس در وردپرس</h1>
-            <div class="alert alert-success">متن آزمایشی</div>
-            <div class="alert alert-error">متن آزمایشی</div>
-            <form action="#" method="post">
+            <?php if($user->success): ?>
+            <div class="alert alert-success"><?php echo $user->msg; ?></div>
+            <?php endif; ?>
+            <?php if($user->error): ?>
+            <div class="alert alert-error"><?php echo $user->msg; ?></div>
+            <?php endif; ?>
+            <form action="#" id="login-form" method="post">
                 <div class="form-group">
                     <label for="name">نام</label>
                     <input type="text" id="name" name="name" placeholder="نام ...">
@@ -127,7 +138,7 @@
                     <label for="bio">بیوگرافی</label>
                     <textarea id="bio" name="bio" rows="4" placeholder="در مورد خودتان بنویسید ..."></textarea>
                 </div>
-                <button type="submit" class="form-button" name="btn-submit">ورود</button>
+                <input type="submit" class="form-button" name="btn-submit" value="ورود">
             </form>
         </section>
     </div>

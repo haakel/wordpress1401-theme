@@ -1,6 +1,7 @@
 <?php
 
 include"sanitize.php";
+include"classes/user.php";
 // echo "hi";
 
 // global $wpdb;
