@@ -107,36 +107,38 @@
             <?php
             $user = new user();
             if (isset($_POST["btn-submit"])){
-                if($_SERVER['REQUEST_METHOD']== "POST"){
-                $user->save($_POST["name"],$_POST["lastname"],$_POST["email"],$_POST["bio"]);
-
+                if($_SERVER['REQUEST_METHOD'] == "POST"){
+                    $user->save($_POST["name"], $_POST["lastname"], $_POST["email"], $_POST["bio"]);
                 }
-
             }
             ?>
             <h1>کار با دیتابیس در وردپرس</h1>
             <?php if($user->success): ?>
-            <div class="alert alert-success"><?php echo $user->msg; ?></div>
+            <div class="alert alert-success"><?php echo esc_html($user->msg); ?></div>
             <?php endif; ?>
             <?php if($user->error): ?>
-            <div class="alert alert-error"><?php echo $user->msg; ?></div>
+            <div class="alert alert-error"><?php echo esc_html($user->msg); ?></div>
             <?php endif; ?>
-            <form action="#" id="login-form" method="post">
+            <form action="<?php echo esc_url($_SERVER["PHP_SELF"]); ?>" id="login-form" method="post">
                 <div class="form-group">
                     <label for="name">نام</label>
-                    <input type="text" id="name" name="name" placeholder="نام ...">
+                    <input type="text" id="name" name="name" placeholder="نام ..."
+                        value="<?php echo esc_attr(isset($_POST["name"]) ? $_POST["name"] : ""); ?>">
                 </div>
                 <div class="form-group">
                     <label for="lastname">نام خانوادگی</label>
-                    <input type="text" id="lastname" name="lastname" placeholder="نام خانوادگی ...">
+                    <input type="text" id="lastname" name="lastname" placeholder="نام خانوادگی ..."
+                        value="<?php echo esc_attr(isset($_POST["lastname"]) ? $_POST["lastname"] : ""); ?>">
                 </div>
                 <div class="form-group">
                     <label for="email">ایمیل</label>
-                    <input type="email" id="email" name="email" placeholder="ایمیل ...">
+                    <input type="email" id="email" name="email" placeholder="ایمیل ..."
+                        value="<?php echo esc_attr(isset($_POST["email"]) ? $_POST["email"] : ""); ?>">
                 </div>
                 <div class="form-group">
                     <label for="bio">بیوگرافی</label>
-                    <textarea id="bio" name="bio" rows="4" placeholder="در مورد خودتان بنویسید ..."></textarea>
+                    <textarea id="bio" name="bio" rows="4"
+                        placeholder="در مورد خودتان بنویسید ..."><?php echo esc_textarea(isset($_POST["bio"]) ? $_POST["bio"] : ""); ?></textarea>
                 </div>
                 <input type="submit" class="form-button" name="btn-submit" value="ورود">
             </form>
