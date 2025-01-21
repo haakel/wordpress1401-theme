@@ -32,7 +32,7 @@ public function save(string $name,string $family,string $email,string $bio):bool
        $lastname = sanitize_text_field($_POST["lastname"]);
        $email = sanitize_text_field($_POST["email"]);
        $bio = sanitize_textarea_field($_POST["bio"]);
-       $data = ["name"=>$name,"lastname"=>$lastname,"email"=>$email,"bio"=>$bio];
+       $data = ["name"=>$name,"family"=>$lastname,"email"=>$email,"bio"=>$bio];
        $format= ["%s","%s","%s","%s"];
        $stmt =$this->db->insert($this->usertable,$data,$format);
        if($stmt){
@@ -47,7 +47,7 @@ public function save(string $name,string $family,string $email,string $bio):bool
     // }else{
 
     // }
-    
+    return false;
 }
 
 }
